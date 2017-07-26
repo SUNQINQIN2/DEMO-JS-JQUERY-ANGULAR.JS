@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片放大功能</title>
+</head>
+<style>
+	*{
+		margin: 0px;
+		padding: 0px;
+	}
+	#box{
+		position: relative;/* 参考物体 */
+		width: 950px;
+		height: 350px;
+		background-image: url("images/bg.jpg");
+		background-repeat: no-repeat;
+		margin: 50px auto;
+	}
+	.upload{
+		position: absolute;
+		left: 50px;/* 距离参考物左边 */
+		bottom: 20px;/* 距离参考物下方 */
+		width: 420px;
+		height: 100px;
+		background-color: #ECE9E9;
+		border-radius: 10px;/* 圆角 */
+		padding: 10px;
+	}
+	.upload a{
+		display: block;/* a标签原来是行内元素，现在设置为块级元素。方法：加block */
+		width: 100px;
+		height: 100px;
+        background: #fff;
+        float: left;
+        border: 1px solid #aaa;
+        border-right: 0px;
+        border-radius: 8px 0px 0px 8px;/* 左上，右上，右下，左下。顺时针 */
+        background-image: url("images/img.png");
+       background-repeat: no-repeat;
+       background-position: center;
+
+	}
+	.upload a input{
+		width: 100px;
+		height: 100px;
+		opacity: 0;/* 透明度 */
+	}
+	.showPhoto{
+		position: absolute;
+        right: 107px;/* 距离参考物you边 */
+        top: 31px;/* 距离参考物shang方 */
+        width: 285px;
+		height: 285px;
+		border: 1px solid red;
+		border-radius: 10px;/* 圆角 */
+		overflow: hidden;/* 超出隐藏！ */
+	}
+#fileName{
+	width: 280px;
+	height: 100px;
+	border: 1px solid #aaa;
+	border-radius: 0px 8px 8px 0px;
+	}
+}
+</style>
+<body>
+	<div id="box">
+		<div class="upload">
+			<a href="#">
+				<!-- 当input值发生改变的时候，就触发里面的函数 -->
+				<input type="file" onchange="upload(this)">
+			</a>
+			<input id="fileName"type="text">
+		</div><!-- 上传功能 -->
+		<div class="showPhoto">
+			<img src="" width="285" id="showImg"><!-- 标签可以不加单位 -->
+		</div>
+	</div>
+	<script src="js/magnifier.js"></script><!-- 放大镜功能 -->
+	<script type="text/javascript">
+	function upload(obj){
+		var fileName=document.getElementById("fileName");
+		var showImg=document.getElementById("showImg");
+        /*console.log(obj.files[0].name);在控制台输出*/
+        /*把图片名字赋值给input框*/
+        fileName.value= obj.files[0].name;
+       /* 把上传进来的图片地址赋值给img的src显示出来*/
+        showImg.src=window.URL.createObjectURL(obj.files[0]);/*找到文件路径*/
+      /*  console.log(window.URL.createObjectURL(obj.files[0]));*/
+     /* 用放大镜插件来实现放大效果*/
+     showImg.setAttribute('bigsrc',showImg.src);
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script src="jquery-3.1.1.js" ></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("button").click(function(){
+			/*$("p").hide(1000,function(){
+               alert("huidiao!");
+			})*/
+		  $("p").css("color","red").slideUp(1000).slideDown(1000);
+		})
+	})
+</script>
+<body>
+	<button id></button>
+	<p>hello world!</p>
+</body>
+</html>

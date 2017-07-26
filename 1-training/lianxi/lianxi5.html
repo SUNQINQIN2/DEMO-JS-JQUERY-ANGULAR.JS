@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+    function coutBill
+    {
+      var timeH=parseInt(document.getElementById('hours').value);
+      var timeM=parseInt(document.getElementById('minute').value);
+      if (timeH<1)
+      {
+         if (timeM<15)
+          {
+
+          }else{
+          	if(timeM%15!=0)
+          	{
+          		var n=timeM%15;
+          	     var m=timeM-n;
+          	 }
+          }
+      }
+
+
+    }
+    </script>
+
+
+	</style>
+</head>
+<body>
+	<h2>-------欢迎来到天福律师事务所---------</h2>
+	<div>
+		<span>请输入咨询时间：</span></br>
+        <span>小时：</span>
+        <input type="text" id="hours" value="1">
+        <span>分钟：</span>
+        <input type="text" id="minute" value="46">
+	</div>
+	<div>
+    <button onclick="">查找</button> <!-- 函数不用加分号，元素名不要写错-->
+    </div>
+    <hr/>
+    <div id="result"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>显示今天是周几</title>
+</head>
+<style type="text/css">
+	*{
+		margin: 0px;
+		padding: 0px;
+	}
+	#body{
+		width: 400px;
+		height: 200px;
+		background-color: #D8D2D2;
+		margin: 40px auto;
+	}
+</style>
+    <script type="text/javascript">
+       function ShowDate(){
+       	var showWeek=new Array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
+       	var date = new Date();
+       	var day=date.getDay();
+      var b=document.getElementById('body');
+       var node_p=document.createElement("p");
+        var today=showWeek[day];
+        alert(today);
+       node_p.innerHTML="Today is"+" "+today;
+       b.appendChild(node_p);
+       }
+    </script>
+<body>
+	<div id="body">
+		<input type="button" value="点击这里" onclick="ShowDate()">
+	</div>
+</body>
+</html>

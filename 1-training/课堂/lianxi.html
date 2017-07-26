@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>求范围内质数</title>
+<meta charset="utf-8">
+<script type="text/javascript">
+    function  Prim(a)
+    {
+    	var p=0; //这边是通过var来定义变量
+    	if(a<2)
+    		return 1;
+    	else
+    	{
+    		for(var i=2;i<a;i++)
+
+    		{
+    			if(a%i==0)
+    				p++;
+    		}
+    		if(p==0)
+    			return 1;
+    		else return 0;
+    	}
+    }
+   function findPrim()
+   {
+     alert("you click me!");
+       var a=parseInt(document.getElementById('start').value);
+       var b=parseInt(document.getElementById('end').value);
+       var result=document.getElementById('result');   //这边是通过ID来获取元素地址
+       var count=0; //这边是通过var来定义变量
+  	    for( ;a<=b;a++)
+  	    {
+       	  if(Prim(a)==1)
+           {
+            count++;
+            result.innerHTML=result.innerHTML+a+"    ";  
+          if(count%5==0)
+             result.innerHTML=result.innerHTML+"<hr/>";
+           }  
+        }  	  
+	}
+</script>
+</head>
+<body>
+<h3>求范围内质数</h3>
+<div>
+<span> 开始范围:<span>
+<input type="text" id="start" value="3">
+</div>
+<div>
+<span>结束范围:<pn>
+<input type="text" id="end" value="100">
+</div>
+<div>
+<button onclick="findPrim()">查找</button> <!-- 函数不用加分号，元素名不要写错-->
+</div>
+<hr/>
+<div id="result"></div>
+</body>
+<ml>

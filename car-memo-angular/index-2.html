@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>小区车辆登记管理</title>
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style type="text/css">
+        
+        .sortBtn{
+           cursor: pointer;
+        }
+
+        .sortBtn:hover{
+           color: blue;
+        }
+
+    </style>
+  </head>
+  <body ng-app="carApp" ng-controller="carCtrl as cc">
+    <!-- 版心 -->
+    <div class="container">
+      <div class="page-header">
+        <h1>博瑞信息 <small>小区车辆登记管理</small>
+        </h1>
+      </div>
+      <div>
+        <form class="form-inline">
+          <div class="form-group">
+            <label for="exampleInputName2">业主姓名:</label>
+            <input type="text" class="form-control" id="exampleInputName2" ng-model="cc.qryRealName" placeholder="模糊查询">
+          </div>
+         <button type="submit" class="btn btn-default">查询</button>
+         <div style="float:right;">
+           <a class="btn btn-primary" onclick="$('#regCarModal').modal();">车辆登记</a>
+         </div>
+        </form>
+      </div>
+      <div class="row">
+         <div class="col-md-12 col-sm-12 hidden-xs">
+             <table class="table table-striped">
+              <thead>
+               <tr>
+                 <th>序号</th>
+                 <th>车牌号码 <span class="glyphicon glyphicon-chevron-up sortBtn" 
+                                    ng-click="cc.sortedColumn='carNo';cc.isReversed=false;"
+                                    title="按车牌号码升序排"></span> 
+                              <span class="glyphicon glyphicon-chevron-down sortBtn"
+                                    ng-click="cc.sortedColumn='-carNo';cc.isReversed=false;"
+                                    title="按车牌号码降序排"></span></th>
+                 <th ng-dblclick="cc.sortedColumn='realName';cc.isReversed=!cc.isReversed;">业主姓名</th>
+                 <th ng-dblclick="cc.sortedColumn='sex';cc.isReversed=!cc.isReversed;">业主性别</th>
+                 <th>操作</th>
+               </tr>
+              </thead>
+              <tbody>
+               <tr ng-repeat="car in cc.carInfos | orderBy:cc.sortedColumn:cc.isReversed |filter:{realName:cc.qryRealName}" 
+                   ng-dblclick="cc.preUpdateCar($index);">
+                 <td>{{$index+1}}</td>
+                 <td>{{car.carNo}}</td>
+                 <td>{{car.realName}}</td>
+                 <td>{{car.sex=='m'?'男':'女'}}</td>
+                 <td>
+                   <button class="btn btn-primary btn-sm" ng-click="cc.preUpdateCar($index);">修改</button>
+                   <button class="btn btn-danger btn-sm removeCar" ng-click="cc.removeCar($index);">删除</button>
+                 </td>
+               </tr>
+              <tbody>
+             </table>
+         </div>
+      </div>
+    </div>
+<!--     <button class="btn" onclick="$('#demoModal').modal({});">test</button>
+    <button class="btn btn-primary" data-toggle="modal" data-target="#demoModal">model win</button> -->
+    <!-- 新增车辆信息模态窗口 -->
+    <div id="regCarModal" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">新增车辆信息</h4>
+          </div>
+          <div class="modal-body">
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label for="carNo" class="col-sm-3 control-label">车牌号码:</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="carNo" placeholder="请输入车牌号码" ng-model="cc.newCar.carNo">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="username" class="col-sm-3 control-label">业主姓名:</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="username" placeholder="请输入真实车主姓名" ng-model="cc.newCar.realName">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="username" class="col-sm-3 control-label">业主性别:</label>
+                <div class="col-sm-9">
+                    <label class="radio-inline">
+                      <input type="radio" name="usersex" value="m" ng-model="cc.newCar.sex"> 男
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="usersex" value="f" ng-model="cc.newCar.sex"> 女
+                    </label>
+                </div>
+              </div>
+            </form>              
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            <button type="button" class="btn btn-primary" ng-click="cc.addCar();">登 记</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->    
+
+    <!-- 修改车辆信息模态窗口 -->
+    <div id="updateCarModal" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">修改车辆信息</h4>
+          </div>
+          <div class="modal-body">
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label for="carNo" class="col-sm-3 control-label">车牌号码:</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="carNo" placeholder="请输入车牌号码" ng-model="cc.newCar.carNo">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="username" class="col-sm-3 control-label">业主姓名:</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="username" placeholder="请输入真实车主姓名" ng-model="cc.newCar.realName">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="username" class="col-sm-3 control-label">业主性别:</label>
+                <div class="col-sm-9">
+                    <label class="radio-inline">
+                      <input type="radio" name="usersex" value="m" ng-model="cc.newCar.sex"> 男
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="usersex" value="f" ng-model="cc.newCar.sex"> 女
+                    </label>
+                </div>
+              </div>
+            </form>              
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            <button type="button" class="btn btn-primary" ng-click="cc.updateCar();"> 确认修改</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->  
+
+    <script src="libs/jquery/jquery-3.2.1.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="libs/angular/angular.js"></script>    
+    <script type="text/javascript" src="js/app2.js"></script>
+  </body>
+</html>

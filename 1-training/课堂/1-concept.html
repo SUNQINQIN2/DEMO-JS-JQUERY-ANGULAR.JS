@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style >
+	*
+	{
+		margin: 0px;/* 不同的浏览器对margin跟padding的显示都不尽相同 */
+		padding: 0px;
+	}
+	span
+	{
+		display: block;
+	}
+	#myspan
+	{
+		border:10px solid red;/* 这是三个样式的缩写形态 */
+        padding: 10px;
+        display:inline-block;
+        border-width: 10px 20px 30px;
+        margin: 10px;
+        width: 100px;
+        height: 60px;
+	}
+	#myspan2
+	{
+		border-width: 3px;
+		border-style: solid;
+		border-color: yellow;
+		display: inline-block;
+	}
+	</style>
+
+</head>
+<body>
+	<span id="myspan">我是内容</span>
+	<span id="myspan2">我是隔壁内容</span>
+</body>
+</html>

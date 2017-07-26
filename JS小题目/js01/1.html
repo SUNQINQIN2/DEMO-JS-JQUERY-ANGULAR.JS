@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>1</title>
+</head>
+
+<style type="text/css">
+	#body{
+		width: 500px;
+		height: 450px;
+		background-color: #E9E3E3;
+		margin: 50px auto;
+		border: 1px solid black;
+	}
+	#inputN{
+		background-color: #90DBC5;
+		margin: 10px 80px;
+	}
+	#result{
+		width: 400px;
+		height: 150px;
+		background-color: white;
+		margin: 0px auto;
+	}
+	#find{
+		margin-left: 220px;
+	}
+</style>
+<script type="text/javascript">
+	function FindMax() {
+		var a=document.getElementById('inputN');
+		var b=new Array();
+	    var c=new Array();
+		var i;
+		b=a.value.split(" ");
+		var length=b.length;
+		for(i=0;i<length;i++)
+			c[i]=parseInt(b[i]);
+		var max=c[0];
+       for(i=1;i<length;i++)
+          {
+           if(c[i]>max)
+           	   max=b[i];
+          }
+        var result=document.getElementById("result");
+        result.innerHTML=max;
+	}
+</script>
+<body>
+	<div id="body">
+		<h3>请输入数字(注意：数值用空格隔开！)：</h3>
+		<div id="inputV">
+        	<textarea rows="8" cols="40" id="inputN">
+            </textarea>
+        </div>
+        <input type="button" onclick="FindMax()" value="查找" id="find">
+        <div id="result"></div>
+	</div>
+</body>
+</html>

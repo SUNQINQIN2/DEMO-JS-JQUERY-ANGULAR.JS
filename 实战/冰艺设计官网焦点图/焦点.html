@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+	body{
+	background: url(images/bg_body.png) repeat-x;
+		
+	}
+	#banner{
+		width: 100%;
+		height: 418px;
+	background: url(images/bg_banner.jpg);
+		position: relative;
+	}
+	.show{
+     width: 900%;
+     height: 418px;
+     /* solid边框样式 */
+     position: absolute;
+	}
+   .show ul li{
+   	list-style-type: none;
+   	width: 100%;
+   	height: 418px;
+   	/* border: 2px solid red; */
+   	float: left;
+   	color: #fff;
+   	position: relative;
+   }
+  .show ul li img{
+/*   	border: 2px solid yellow; */
+  	left: 50%;
+  } 
+</style>
+<body>
+	<div id="banner">
+		<div class="show">
+			<!-- 九个演员 用无序列表做-->
+			<ul>
+				<li>01<img src="images/banner_img1.png" class="img"></li>
+				<li>02<img src="images/banner_img2.png" class="img"></li>
+				<li>03<img src="images/banner_img3.png" class="img"></li>
+				<li>04<img src="images/banner_img4.png" class="img"></li>
+				<li>05<img src="images/banner_img5.png" class="img"></li>
+				<li>06<img src="images/banner_img6.png" class="img"></li>
+				<li>07<img src="images/banner_img7.png" class="img"></li>
+				<li>08<img src="images/banner_img8.png" class="img"></li>
+				<li>09<img src="images/banner_img9.png" class="img"></li>
+			</ul>
+		</div>
+	</div>
+</body>
+<script src="jquery-3.1.1.js" ></script>
+<script type="text/javascript">
+	var widthh=$(window).width();
+	$(".show ul li").css("width",widthh+"px");//给li一个动态宽度
+	/*alert(width);*/
+</script>
+</html>

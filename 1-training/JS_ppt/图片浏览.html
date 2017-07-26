@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script type="text/javascript">
+	function showPic(a){
+       var placeholder=document.getElementById('placeholder');
+       var src_photo=a.getAttribute("href");
+       placeholder.setAttribute("src",src_photo);
+	}
+</script>
+
+<body>
+	<ul>
+		<li><a href="photo/1.jpg" onclick="showPic(this); return false;" >1</a></li><!-- false意味着连接没有被点击，而是只执行了函数 -->
+		<li><a href="photo/2.jpg" onclick="showPic(this); return false;">2</a></li>
+		<li><a href="photo/3.jpg" onclick="showPic(this); return false;">3</a></li>
+	</ul>
+	<img src="photo/1.jpg" id="placeholder">
+</body>
+</html>

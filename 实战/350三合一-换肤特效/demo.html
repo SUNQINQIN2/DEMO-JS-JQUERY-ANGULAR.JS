@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>百度换肤</title>
+</head>
+<style type="text/css">
+*{    /* 通配符 */
+		margin: 0px; 
+		padding: 0px;
+}
+body{
+	background: url("images/1.jpg");
+	background-size: cover;
+}
+	.baidu{
+		width: 100%;
+		height: 200px;
+		background: rgba(0,0,0,0.6);/* 背景颜色及透明度(红蓝绿0-250)（y0-1）（x,x,x,y） */
+		border:1px solid #000;/* 注意：如果父级没有外边框，子级的magin会传值给父级； */
+		display: none;
+	}
+	.dimg_list{
+		width: 1000px;
+		height: 100px;
+		margin:50px auto;/* (上，左右，下) 此合子与外物的距离！*/
+		
+	}
+	.dimg_list ul li{
+		width: 160px; 
+		height: 100px;
+		border:1px solid #fff;
+		list-style: none;
+		float: left;
+		margin-right: 28px;
+		cursor: pointer;/* 鼠标样式 */
+	}
+	.but{
+		width: 50px;
+		height: 50px;
+		display: block;/* 变成块级元素 */
+		background: red;
+		background: url("images/upseek.png");
+		position: absolute;
+		top: 0px;
+		right: 0px;
+
+	}
+	.but:hover{background-position: 0px -64px;}
+</style>
+<body id="abody">
+	<div class="baidu">
+		<div class="dimg_list">
+			<ul><!-- 无序列表会有一个默认的内边距 所以*中要加padding -->
+				<li><img src="images/1-1.jpg" width="100%" height="100%" dateRrc="images/1.jpg"
+				 onclick="showPic(this)" ></li><!-- 自定义属性 -->
+				<li><img src="images/2-2.jpg" width="100%" height="100%" dateRrc="images/2.jpg"
+					onclick="showPic(this)" ></li>
+				<li><img src="images/3-3.jpg" width="100%" height="100%" dateRrc="images/3.jpg"
+					onclick="showPic(this)"></li>
+				<li><img src="images/4-4.jpg" width="100%" height="100%" dateRrc="images/4.jpg"
+					onclick="showPic(this)"></li>
+				<li><img src="images/5-5.jpg" width="100%" height="100%" dateRrc="images/5.jpg"
+					onclick="showPic(this)" ></li>
+			</ul>
+		</div>
+	</div>
+	<div><a href="#" class="but"></a></div><!-- 行内元素没有宽高！ -->
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script>
+	$(".but").click(function (){
+		/*alert("ff");*/
+		$(".baidu").slideToggle();
+	})
+	/*方法一：*/ 
+	$(".dimg_list ul li").click(function(){
+		var pic=$(this).find("img").attr("dateRrc");
+		$("body").css({"background":"url("+pic+")","background-size":"cover"});
+	})
+    
+	</script>
+</body>
+</html>

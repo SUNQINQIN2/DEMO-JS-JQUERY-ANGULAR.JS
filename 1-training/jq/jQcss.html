@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script src="jquery-3.1.1.js" ></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		/*第一种方法：*/
+		/*$("div").css("width","100px");
+		$("div").css("height","100px");
+		$("div").css("background","red");*/
+			/*第二种方法：*/
+		/*$("div").css({
+			width:"100px",height:"100px",backgroundColor:"red"
+		})*/
+		/*第三种方法：addclass*/
+		$("div").addClass("style1");
+		$("div").click(function(){
+			/*$("div").addClass("style2");*/
+			$("div").toggleClass("style2");
+		})
+	})
+</script>
+<link rel="stylesheet" type="text/css" href="jQCSS.css">
+<body>
+	<div></div>
+</body>
+</html>

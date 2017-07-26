@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+	#div{
+		width: 100px;
+		height: 100px;
+		margin: 50px;
+		padding: 50px;
+		border: 30px solid green;
+		background-color: red;
+	}
+</style>
+<script src="jquery-3.1.1.js" ></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		alert($("#div").height());
+		alert($("#div").innerHeight());
+		alert($("#div").outerHeight());
+	})
+</script>
+<body>
+	<div id="div"></div>
+</body>
+</html>

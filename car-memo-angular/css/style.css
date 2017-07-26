@@ -1,0 +1,15 @@
+*{
+	font-family: "微软雅黑"
+}
+
+.container{
+   /*border:1px solid red;*/
+}
+
+.row > div{
+   /*border:1px solid green;	*/
+}
+
+#carInfoEntry{
+   padding-top: 8px;	
+}

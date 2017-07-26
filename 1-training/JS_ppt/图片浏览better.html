@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script type="text/javascript">
+	function showPic(a) {
+		var placeholder=document.getElementById('placeholder');
+       var src_photo=a.getAttribute("href");
+       placeholder.setAttribute("src",src_photo);//属性节点
+       var text=a.getAttribute("title");
+       var description=document.getElementById("description");
+       description.firstChild.nodeValue=text;//节点值，文本节点
+       	}
+</script>
+<body>
+	<ul>
+		<li><a href="photo/1.jpg" onclick="showPic(this);return false;" title="1">1</a></li><!-- false意味着连接没有被点击，而是只执行了函数 -->
+		<li><a href="photo/2.jpg" onclick="showPic(this);return false;" title="2">2</a></li>
+		<li><a href="photo/3.jpg" onclick="showPic(this);return false;" title="3">3</a></li>
+	</ul> 
+	<p id="description">Choose a photo！</p>
+	<img src="photo/1.jpg" id="placeholder" alt="photo"/>
+</body>
+</html>

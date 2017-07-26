@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<script type="text/javascript">
+	function FindFrim(a,b)
+	{
+		var i=a;
+		var max=b;
+		var count=0;
+		var p=document.getElementById("p1");
+		p.innerHTML=null;
+		for(;i<=max;i++)
+		{
+			if(IsFrim(i))
+			{
+				if(count++%10==0)
+					p.innerHTML+="<hr>";
+				p.innerHTML=p.innerHTML+i+" ";
+			}
+		}
+	}
+	function IsFrim(num)
+	{
+		var v_is=true;
+		var j=2;
+		if(num==1)
+			v_is=false;
+		for(;j<num&&v_is;j++)
+			{
+				if(num%j==0)
+				{
+					v_is=false;
+					break;
+				}
+			}
+			return v_is;
+	}
+	function Frim()
+	{
+		alert("you click me");
+		var min=parseInt(document.getElementById("min").value);
+		var max=parseInt(document.getElementById("max").value);
+		if(min>max)
+		{
+			alert("开始范围大于结束范围");
+			exit();
+		}
+		else if(min<=0)
+		{
+			alert("请输入大于0的数");
+		}
+		else
+		{
+			FindFrim(min,max);
+			exit();
+		}
+	}
+
+</script>
+<html>
+<body>
+	<title>质数</title>
+	<h3>求某范围质数</h3>
+	<a href="a.html">第一章</a>
+	<div>
+	<span>最小值<input type="text" value="3" id="min">
+	<spac>最大值<input type="text" value="10" id="max"></spac>
+	<span><input type="button" value="提交" id="submit" onclick="Frim()"></span>
+	</div>
+	<p id="p1"></p>
+	
+</body>
+</html>
+

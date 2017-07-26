@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>速度动画</title>
+     <link rel="stylesheet" type="text/css" href="速度.css">
+</head>
+<script type="text/javascript">
+
+	  window.onload=function()
+	 {
+        var o=document.getElementById('idiv');
+        o.onmouseover=function(){
+        	startMove(0);
+        }
+        o.onmouseout=function()
+        {
+        	startMove(-200);
+        }
+	 }
+	 var timeM=null; 
+	  function startMove(Mtarget)
+	  {
+	  	var o=document.getElementById('idiv');
+        clearInterval(timeM);
+	  	timeM=setInterval(function()
+	  	{
+	  		var speed=0;
+         if(o.offsetLeft<Mtarget)
+         {
+             speed=10;
+         }
+         else
+         {
+          	speed=-10;
+         }
+	  	if(o.offsetLeft==Mtarget)
+	  	 {
+	  		clearInterval(timeM);
+	  	}
+	  	else{
+	  	o.style.left=o.offsetLeft+speed+'px';
+	  	}
+	  },30)
+	  }
+</script>
+<body>
+	<div id="idiv">
+		<span id="sdiv">傻逼</span>
+	</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>点击按钮，文本变换</title>
+</head>
+<style type="text/css">
+	*{
+		margin: 0px;
+		padding: 0px;
+	}
+	#body{
+		width: 400px;
+		height: 200px;
+		background-color: #D8D2D2;
+		margin: 40px auto;
+	}
+</style>
+<script type="text/javascript">
+	function Convert(){
+		var text=document.getElementsByTagName('p')[0].innerHTML="My First JS!";//获得p标签的文本
+	}
+</script>
+<body>
+	<div id="body">
+		<p>A Paragraph</p>
+		<input type="button" value="点击这里" onclick="Convert()">
+	</div>
+</body>
+</html>

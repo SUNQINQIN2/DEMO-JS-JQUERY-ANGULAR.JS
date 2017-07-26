@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script src="jquery-3.1.1.js" ></script>
+<style type="text/css">
+	div{
+		width: 200px;
+		height: 200px;
+		background-color: #A7EAE4;
+	}
+</style>
+<script>
+	$(document).ready(function(){
+		$("body").bind("click",clickonb);
+		$("div").bind("click",clickond);
+	});
+	function clickonb(event)
+	{
+		console.log("body");
+	}
+	function clickond(event)
+	{
+		console.log("div");
+	
+	}
+
+</script>
+<body>
+	<div>
+		<ul>
+		<li>hah</li>
+		<li>hah2</li>
+		<li>hah3</li>
+		<li>hah4</li>
+		</ul>
+	</div>
+</body>
+</html>

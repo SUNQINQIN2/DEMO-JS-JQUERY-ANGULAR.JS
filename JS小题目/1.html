@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<!-- 点选择到点，点进入跳转到对应的网站 -->
+<style type="text/css">
+	*{
+		margin: 0px;
+		padding: 0px;
+	}
+	#body{
+		width: 400px;
+		height: 200px;
+		border: 1px solid red;
+		margin: 30px auto;
+		padding: 10px 10px;
+		background-color: #A0CFA0;
+	}
+	ul li{
+		display: inline;
+		text-decoration: none;
+	}
+</style>
+<script type="text/javascript">
+       var i=0,j=0;
+       var node=document.getElementsByTagName('a');
+	function Next() {
+	    var n=node.length;//n=4;
+        node[i%n].style.border="1px solid #3C3737";
+        i++;
+        j++;
+        if(j!=1)
+        	 node[(j-2)%4].style.border=null;
+       
+    }
+        function Sure(){
+        if(node[(i-1)%4].style.border!=null)
+        {
+        	var shref=node[(i-1)%4].getAttribute("href");
+        	alert(shref);
+           window.location.href=shref;
+        }
+     }
+</script>
+<body>
+	<div id="body">
+		<ul>
+			<li ><a href="http://www.baidu.com/" id="baidu">百度</a></li>
+			<li><a href="http://www.google.cn/" id="guge">谷歌</a></li>
+			<li><a href="http://www.youku.com/" id="youku">优酷</a></li>
+			<li><a href="http://www.tudou.com/" id="tudou">土豆</a></li>
+			<li><input type="button" value="选择" id="submit" onclick="Next()"></li>
+		</ul>
+		<span><input type="button" value="确定" id="submit" onclick="Sure()"></span>
+	</div>
+</body>
+</html>

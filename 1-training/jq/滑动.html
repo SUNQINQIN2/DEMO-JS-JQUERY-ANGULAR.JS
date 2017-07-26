@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+ #content,#flipshow,#flipout{
+	padding: 5px;
+	text-align: center;
+	background-color: red;
+	border: solid 1px blue;
+} 
+	#content{
+		padding: 50px;
+		display: none;
+	}
+</style>
+<script src="jquery-3.1.1.js" ></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#flipshow").click(function(){
+			$("#content").slideDown(1000);
+		})
+		$("#flipout").click(function(){
+			$("#content").slideUp(1000);
+		})
+		
+	})
+</script>
+<body>
+	<div id="flipshow">出现</div>
+	<div id="flipout">隐藏</div>
+	<div id="content">hello world！</div>
+</body>
+</html>

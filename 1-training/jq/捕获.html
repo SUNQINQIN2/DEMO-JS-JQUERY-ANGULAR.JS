@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script src="jquery-3.1.1.js" ></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		/*$("#bid").click(function(){
+			alert("p的text："+$("#pid").text());
+		})*/
+		/*$("#bid").click(function(){
+			alert("p的text："+$("#pid").html());
+		})*/
+	/*$("#bid").click(function(){
+			alert("p的text："+$("#it").val());
+		})*/
+	$("#bid").click(function(){
+			alert("p的text："+$("#aid").attr("href"));
+		})
+	});
+</script>
+<body>
+	<button id="bid">确定</button>
+	<p id="pid">hahaha<a>这是a</a></p>
+	<p><input type="text" value="baidu" id="it"></p>
+	<p><a href="http://baidu.com" id="aid">baidu</a></p>
+</body>
+</html>

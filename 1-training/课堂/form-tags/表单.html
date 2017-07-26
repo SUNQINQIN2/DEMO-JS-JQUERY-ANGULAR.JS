@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>表单</title>
+	<meta charset="UTF-8">	
+	<script type="text/javascript">
+    function checkForm()
+	{
+		
+     /*var P=document.getElementsByTagName("stuPass")[0].value;*/
+     var P=parseInt(document.getElementById('stuPass').value);
+     if(P=="  "||P.length==0)
+     {    
+      alert("密码不能为空！");
+        return false;
+     }
+     return true;
+	}
+	</script>
+</head>
+<body>
+	<h3>新生登记</h3>
+	<form action="process.html" method="get" onsubmit="return checkForm()">
+		<input type="hidden" name="regCode" value="ddd">
+<div><span>学生学号：</span>
+<input type="text" id="stuNo" name="学号" size="6" maxlength="6" value="A001" autofocus required>
+</div>
+<div><span>学生密码：</span>
+<input type="text" id="stuPass" name="密码" size="6" maxlength="6">
+</div>	
+<div>
+	<span>学生性别：</span>
+	<input type="radio" name="sex" value="f" checked="checked">女
+	<input type="radio" name="sex" value="w">男
+</div>
+<div>
+	<span>学生爱好：</span>
+	<input type="checkbox" name="stuhobby" value="sm" checked>游泳
+	<input type="checkbox" name="stuhobby" value="pq">排球
+</div>
+<div>
+	<span>学生照片：</span>
+	<input type="file" name="stuhphoto">选择
+</div>
+<div>
+	<span>学生籍贯：</span>
+	<select name="stuorigin" size="4" multiple>
+		<option value="湖南" selected>湖南</option>
+		<option value="河北">河北</option>
+		<option value="贵州">贵州</option>
+		<option value="青岛">青岛</option>
+	</select>
+</div>
+<div><span>登记:</span>
+ <input type="submit" value="登记">
+</div>
+<div><span>重置:</span>
+ <input type="reset" value="重置">
+</div>
+<div>
+	<span>备注说明：</span>
+	<hr/>   
+    <textarea name="stumemo" cols="60" rows="10" placeholder="这个家伙很懒！">
+    </textarea>
+</div>
+</form>
+<hr>
+<button onclick="alert('hallo');">test</button>
+</body>
+</html>

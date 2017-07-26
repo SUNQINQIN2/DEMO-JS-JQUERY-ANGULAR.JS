@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>求水仙花数</title>
+  <style >
+      #result{
+        margin-top: 20px;
+        border-top: 2px solid #ccc;
+      }
+  </style>
+	<script type="text/javascript">
+   function IsFlowerNum(num)
+   {
+    var size=CheckLenth(num);
+    var temp=num;
+    var sum=0;
+     while(temp>0)
+     {
+       sum=sum+Math.floor(Math.pow(temp%10,size));
+       temp=Math.floor(temp/10);
+     }
+     return sum==num;
+   }
+   function CheckLenth(num)
+   {
+    return (num+"").length;
+   }
+   function FlowerNum()
+   {
+    var size2=parseInt(document.getElementById("size").value);
+    var result=document.getElementById("result");
+    var i=Math.floor(Math.pow(10,size2-1));
+    var j=Math.floor(Math.pow(10,size2)-1);
+    var count=0;
+    for(;i<=j;i++)
+    {
+      if(IsFlowerNum(i)==true){
+        count++；
+      result.innerHTML=result.innerHTML+i+"     ";
+       if(count%5==0)
+         result.innerHTML=result.innerHTML+"<hr/>";
+    }
+   }
+   //alert(IsFlowerNum(1234));
+    </script>
+</head>
+<body>
+	 <h1>求某长度水仙花数</h1>
+	 <div>
+	 	<label for="size">位数</label>
+	 	<input type="text" id="size" value="3">
+     <button onclick="FlowerNum()">查找</button> 
+     </div>
+    <hr/>
+    <div id="result"></div>
+</body>
+</html>

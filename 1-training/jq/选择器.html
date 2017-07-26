@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script src="jquery-3.1.1.js" ></script>
+<script>
+	$(document).ready(function () {
+	$("button").click(function(){
+		$("#pid").text("p元素被修改了！");
+	});
+	});
+</script>
+<body>
+	<p>p1</p>
+	<p id="pid">p2</p>
+	<button>click me!</button>
+</body>
+</html>

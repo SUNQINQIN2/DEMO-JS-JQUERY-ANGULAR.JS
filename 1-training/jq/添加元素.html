@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>添加元素</title>
+</head>
+<script src="jquery-3.1.1.js" ></script>
+<script type="text/javascript">
+	/*$(document).ready(function(){
+		$("#bid").click(function()
+		{
+			$("#p1").append("mom");
+		})
+	});
+	*/
+	$(document).ready(function(){
+		$("#bid").click(function()
+		{
+			addText();
+		})
+	});
+	function addText()
+	{
+		var text1="<p>p1</p>";
+		var text2=$("<p></p>").text("p2");
+		var text3=document.createElement("p");
+		text3.innerHTML="p3";
+		$("body").append(text1,text2,text3);
+	}
+
+</script>
+<body>
+	<!-- <p>hahah</p> -->
+	<button id="bid" >按钮</button>
+</body>
+</html>

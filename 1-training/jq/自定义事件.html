@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script src="jquery-3.1.1.js" ></script>
+<script type="text/javascript">
+var a;
+$(document).ready(function(){
+	a=$("#b");
+	a.click(function(){
+		var e=jQuery.event("Myevent");
+		a.trigger(e);
+	})
+   a.bind("Myevent",function(event){
+   	console.log(event);
+   })
+});
+</script>
+<body>
+	<button id="b">按钮</button>
+</body>
+</html>

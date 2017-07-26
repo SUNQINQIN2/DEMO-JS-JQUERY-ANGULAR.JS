@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script src="jquery-3.1.1.js" ></script>
+<script>
+	$(document).ready(function()
+	{
+       /*$(button).click(function(){*/
+       /*	$("button").dblclick(function(){
+         
+       	$(this).hide();
+       })*/
+       	$("#bid").bind("click",clickon);
+	});
+   function clickon(e)
+   {
+   alert("haha");
+   }
+</script>
+<body>
+	<button id="bid">Click me!</button>
+</body>
+</html>   

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2</title>
+</head>
+<script type="text/javascript">
+	   window.onload=function() {
+	   	   var num=document.getElementById('txt').value;
+	   	   var result=document.getElementById("result");
+           var numt=parseInt(num);
+           for(var i=0;i<numt;i++)
+             result.innerHTML=result.innerHTML+i+"   ";
+	   }
+</script>
+<body>
+	<input type="text" id="txt">
+	<div id="result"></div>
+</body>
+</html>
